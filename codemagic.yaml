@@ -1,10 +1,8 @@
 workflows:
   build-and-deploy:
-    jobs:
-      - name: Build and Package
-        script:
-          - cd teste4
-          - ./gradlew assembleDebug
-          # Outras etapas do fluxo de trabalho
-        artifacts:
-          - teste4/build/outputs/apk/debug/*.apk
+    script:
+      - cd teste4
+      - ./gradlew assembleDebug
+      # Outras etapas do fluxo de trabalho
+    artifacts:
+      - teste4/build/outputs/apk/debug/*.apk
