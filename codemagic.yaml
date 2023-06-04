@@ -3,18 +3,10 @@ workflows:
     environment:
       vars:
         # Variáveis de ambiente, se necessário
-    app:
-      os: android
-      flutter:
-        flutter_directory: teste4
-        flutter_version: 2.2.3
-        # Outras configurações do Flutter
-    jobs:
-      - name: Build and Package
-        script:
-          - cd $FCI_BUILD_DIR/$FLUTTER_DIR
-          - flutter build apk
+      script:
+        - cd teste4
+        - ./gradlew assembleDebug
           # Outras etapas do fluxo de trabalho
-        artifacts:
-          - $FCI_BUILD_DIR/$FLUTTER_DIR/build/app/outputs/apk/release/*.apk
+      artifacts:
+        - $FCI_BUILD_DIR/$FLUTTER_DIR/build/app/outputs/apk/release/*.apk
 
