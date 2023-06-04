@@ -1,12 +1,10 @@
 workflows:
-  version: 2
   build-and-deploy:
     environment:
       vars:
         # Variáveis de ambiente, se necessário
     jobs:
-      build-and-package:
-        name: Build and Package
+      - name: Build and Package
         script:
           - cd teste4
           - ./gradlew assembleDebug
