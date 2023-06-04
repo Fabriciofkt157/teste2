@@ -1,9 +1,18 @@
 workflows:
-  version: 2
-  build-and-deploy:
-    script:
-      - cd teste4
-      - ./gradlew assembleDebug
-      # Outras etapas do fluxo de trabalho
+  native-android:
+    name: teste
+    max_build_duration: 120
+    instance_type: mac_mini_m1
+      vars:
+        PACKAGE_NAME: "com.ds.teste"
+    scripts:
+      - name: Set Android SDK location
+        script: |
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > "$FCI_BUILD_DIR/local.properties"
+      - name: Build Android release
+        script: |
+          cd teste4
+          ./gradlew assembleDebug
     artifacts:
-      - teste4/build/outputs/apk/debug/*.apk
+      - teste4/builds
+    
