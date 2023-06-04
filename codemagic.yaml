@@ -1,8 +1,5 @@
 workflows:
   build-and-deploy:
-    environment:
-      vars:
-        # Variáveis de ambiente, se necessário
     jobs:
       - name: Build and Package
         script:
